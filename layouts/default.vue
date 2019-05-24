@@ -7,9 +7,19 @@
 <script>
 import Header from '~/pages/headers/index.vue';
 export default {
+	data(){
+		return {
+			title: "主页"
+		}
+	},
 	components: {
 		Header
-  }
+  },
+	head(){
+		return {
+			title: this.title
+		}
+	}
 }
 </script>
 <style>

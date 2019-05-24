@@ -39,9 +39,12 @@ export default {
 		 * 解决启动报错 element-ui
 		 */
 		{
-	  	src: '@/plugins/element-ui',
-	  	ssr: false
-	  }
+	  	src: '~/plugins/element-ui',
+	  	ssr: true  //开启服务端渲染
+		},
+		{
+			src: '~/plugins/axios'
+		}
 
   ],
 
@@ -61,10 +64,25 @@ export default {
 
   /*
   ** Build configuration
+	* 配置在自动生成的 vendor.bundle.js 文件中添加一些模块
   */
   build: {
     transpile: [/^element-ui/],
-    
+		vendor: [
+			'~/plugins/element-ui',
+		],
+		babel: {
+      'plugins': [
+        [
+          'component',
+          {
+            'libraryName': 'element-ui',
+            'styleLibraryName': 'theme-chalk'
+          }
+        ]
+      ],
+      'comments': true
+    },
     /*
     ** You can extend webpack config here
     */

@@ -6,14 +6,15 @@
 					<nuxt-link to="/users">用户</nuxt-link>
 					<nuxt-link to="/users">用户</nuxt-link>
 					<nuxt-link to="/users">用户</nuxt-link>
-					<nuxt-link to="/users">用户</nuxt-link>
-					<nuxt-link to="/shops">商品</nuxt-link>
+					<nuxt-link to="/users/yy">错误页面</nuxt-link>
+					<nuxt-link to="/shops/12556">商品</nuxt-link>
 				</li>
 			</ul>
 		</div>
 </template>
 <script>
 export default {
+		layout: 'main',
 		name: "headers",
 		data () {
 				return {
