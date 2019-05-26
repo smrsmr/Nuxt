@@ -33,35 +33,40 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
+	router: {
+		middleware: ['userAuth']
+	},
   plugins: [
     // '@/plugins/element-ui'
-		/**
-		 * 解决启动报错 element-ui
-		 */
 		{
 	  	src: '~/plugins/element-ui',
 	  	ssr: true  //开启服务端渲染
 		},
 		{
-			src: '~/plugins/axios'
+			src: '~/plugins/axios',
+			// ssr: true  //开启服务端渲染
+		},
+		{
+			src: '~/plugins/route',
+			ssr: true  //开启服务端渲染
 		}
-
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-  ],
-  /*
+    '@nuxtjs/axios'
+	],
+	 /*
   ** Axios module configuration
   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+	axios: {
+    proxy: true
   },
-
+  proxy: {
+    '/api': 'http://127.0.0.1:3001'
+  },
   /*
   ** Build configuration
 	* 配置在自动生成的 vendor.bundle.js 文件中添加一些模块

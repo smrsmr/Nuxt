@@ -5,6 +5,8 @@
 </template>
 <script>
 export default {
+	  // 设置忽略登录判断
+	  // auth: false,
 	  //自定义校验方法
 		async validate ({ params }) {
 			// 必须是number类型
@@ -25,7 +27,7 @@ export default {
 		methods: {
 			async fetchSomething() {
 				const prov = await this.$axios.$get('http://127.0.0.1:3001/getArea');
-				// await this.$axios.$get('http://127.0.0.1:3001/checkUser');
+				// await this.$axios.$get('http://127.0.0.1:3001/checkUser'); 
 			}
 		},	
 		mounted() {

@@ -33,6 +33,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+	width: 100%;
+	height: 100%;
 }
 
 *,
