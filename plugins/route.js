@@ -6,20 +6,16 @@ export default ({
 }) => {
   app.router.beforeEach((to, from, next) => {
     let isClient = process.client;
-    let token = utils.getcookiesInClient('token');
+    let token = utils.getcookiesInClient('USERTOKEN');
     let path = to.path;
 		if (isClient) {
-      if (token) {
-        if (path === '/login') {
-          next()
-        } else {
-          $axios.$get('http://127.0.0.1:3001/checkUser').then((result) => {
-            // console.log(result);
-          }).catch((err) => {
-            console.log(err)
-          });
-          next();
-        }
+			if (token) {
+        $axios.$get('http://127.0.0.1:3001/checkUser').then((result) => {
+					// console.log(result);
+				}).catch((err) => {
+					console.log(err)
+				});
+        next();
         // return store.dispatch('VERDICT');
       } else {
         if (path === '/login') { 

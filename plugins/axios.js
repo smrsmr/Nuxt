@@ -11,7 +11,7 @@ export default function ({ $axios, redirect, route }) {
 	$axios.onRequest(config => {
 		// console.log(config);
 		// console.log('Making request to ' + config.url)
-		let token = utils.getcookiesInClient("token");
+		let token = utils.getcookiesInClient("USERTOKEN");
 		if (token) {
 			token = token.replace(/'|"/g, ""); // 把token加入到默认请求参数中
 			config.headers.common["Authorization"] = `Bearer ` + token;

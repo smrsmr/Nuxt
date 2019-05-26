@@ -15,7 +15,7 @@ export default {
   },
   //设置客户端cookie
   setcookiesInClient:function (key,value) {
-    Cookie.set(key,value)
+    Cookie.set(key,value,{ expires: 1 })
   },
   //删除客户端cookie
   removecookiesInClient:function (key) {

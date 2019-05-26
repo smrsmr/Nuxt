@@ -84,7 +84,7 @@ export default {
 									title: '登录成功',
 									message: ('i', { style: 'color: teal'},'')
 								});
-								utils.setcookiesInClient('token',result.token);
+								utils.setcookiesInClient('USERTOKEN',result.token);
 								this.$router.push({ path: '/'});
 							}else if(result.status===2) {
 								this.$message({
@@ -111,7 +111,7 @@ export default {
     },
 		created() {
 			//默认初始化删除token
-			utils.removecookiesInClient('token');
+			utils.removecookiesInClient('USERTOKEN');
 		},
 }
 </script>
